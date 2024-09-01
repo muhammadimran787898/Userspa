@@ -68,12 +68,10 @@ const ProductList = () => {
     console.log("Products loaded:", products);
   }, [products]);
 
-  // Apply filtering based on category, price range, and search query
   const filteredProducts = products?.filter((product) => {
     const productPriceStr = product.price.toString();
     const enteredPriceStr = maxPrice.toString();
 
-    // Match products where the price starts with the entered value
     const priceMatches = productPriceStr.startsWith(enteredPriceStr);
 
     return (
