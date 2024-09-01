@@ -11,7 +11,8 @@ const ProductDetails = () => {
     fetcher
   );
 
-  if (!product) return <div class="loader"></div>;
+  if (!product)
+    return <div class="loader grid grid-cols-1 gap-4 content-center"></div>;
   if (error) return <p>Error loading product details...</p>;
 
   return (
