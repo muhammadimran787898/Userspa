@@ -7,10 +7,9 @@ import { ProductContext } from "../components/context/ProductContext";
 const ProductList = () => {
   const { filters, setFilters } = useContext(ProductContext);
   const { products, isLoading, isError } = useProducts();
-  const [maxPrice, setMaxPrice] = useState(filters.priceRange[1]);
+  const [maxPrice, setMaxPrice] = useState(filters.priceRange);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Apply filtering based on category, price range, and search query
   const filteredProducts = products?.filter((product) => {
     const productPrice = parseFloat(product.price);
     const maxPriceFloat = parseFloat(maxPrice);
@@ -34,7 +33,7 @@ const ProductList = () => {
         }
         onPriceChange={(value) => {
           setMaxPrice(value);
-          setFilters({ ...filters, priceRange: [0, parseFloat(value)] });
+          setFilters({ ...filters, priceRange: parseFloat(value) });
         }}
         maxPrice={maxPrice}
       />

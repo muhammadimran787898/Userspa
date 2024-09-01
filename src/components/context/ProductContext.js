@@ -5,7 +5,7 @@ export const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
   const [filters, setFilters] = useState({
     category: "",
-    priceRange: [0, null],
+    priceRange: null,
   });
 
   return (
